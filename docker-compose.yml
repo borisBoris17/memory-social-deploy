@@ -3,16 +3,16 @@ version: '3.7'
 services: 
 
   memory-social-ui:
-    image: tbichse/dvc-calc-ui:1.5-ubuntu
+    image: tbichse/memory-social-ui:1.1-ubuntu
     container_name: memory-social-ui 
     stdin_open: true
     ports: 
-      - 8080:80
+      - 8088:80
     depends_on:
       - memory-social-api
   
   memory-social-api:
-    image: tbichse/memory-social-api:1.2-ubuntu
+    image: tbichse/memory-social-api:1.1-ubuntu
     container_name: memory-social-api
     stdin_open: true
     environment:
@@ -21,9 +21,9 @@ services:
       DB_PORT: 5432
       DB_USER: postgres
       DB_PASSWORD: postgres
-      DB_NAME: postgres
+      DB_NAME: memory-social
     ports: 
-        - 3001:3001
+        - 3002:3002
     depends_on:
       - db
   
@@ -33,11 +33,11 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=memory-social
     ports:
-      - '5432:5432'
+      - '5433:5432'
     volumes: 
-      - ./db:/var/lib/postgresql/data
+      - ./memory-social/db:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 networks:
