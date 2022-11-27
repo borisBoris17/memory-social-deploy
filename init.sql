@@ -26,6 +26,7 @@ CREATE TABLE account (
   account_id INT GENERATED ALWAYS AS IDENTITY,
   username VARCHAR(60),	
   password VARCHAR(120),
+  profile_node_id INT,
   PRIMARY KEY(account_id),
   CONSTRAINT fk_profilenode
     FOREIGN KEY(profile_node_id) 
