@@ -21,7 +21,7 @@ services:
       DB_PORT: 5432
       DB_USER: postgres
       DB_PASSWORD: postgres
-      DB_NAME: memory-social
+      DB_NAME: postgres
     ports: 
         - 3007:3007
     depends_on:
