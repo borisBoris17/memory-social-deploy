@@ -17,7 +17,7 @@ services:
     stdin_open: true
     environment:
       NODE_ENV: dev
-      DB_HOST: db
+      DB_HOST: memory-social-db
       DB_PORT: 5432
       DB_USER: postgres
       DB_PASSWORD: postgres
@@ -27,9 +27,9 @@ services:
     volumes: 
       - ./images:/app/images
     depends_on:
-      - db
+      - memory-social-db
   
-  db:
+  memory-social-db:
     image: postgres:14.1-alpine
     restart: always
     environment:
