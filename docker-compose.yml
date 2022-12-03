@@ -8,6 +8,8 @@ services:
     stdin_open: true
     ports: 
       - 8088:80
+    volumes: 
+      - ./images:/images
     depends_on:
       - memory-social-api
   
