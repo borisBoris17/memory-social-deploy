@@ -3,7 +3,7 @@ version: '3.7'
 services: 
 
   memory-social-ui:
-    image: tbichse/memory-social-ui:1.5-ubuntu
+    image: tbichse/memory-social-ui:1.6-ubuntu
     container_name: memory-social-ui 
     stdin_open: true
     ports: 
@@ -14,7 +14,7 @@ services:
       - memory-social-api
   
   memory-social-api:
-    image: tbichse/memory-social-api:1.3-ubuntu
+    image: tbichse/memory-social-api:1.5-ubuntu
     container_name: memory-social-api
     stdin_open: true
     environment:
